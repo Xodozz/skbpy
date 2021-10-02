@@ -1,0 +1,97 @@
+    {% block header%}
+<style>
+      .mainmenu{
+            height: 100px;
+            display: flex;
+            padding-left: 0;
+            list-style: none;
+        }
+     nav a{  
+            color: white;
+            line-height: 60px;
+            display: block;
+            text-decoration: none;
+            text-align: center;
+            width: 270px;
+            height: 60px;
+            padding:1em;
+            white-space: nowrap;
+            
+        }
+        .head-a {
+            color: white;
+            text-decoration: none;
+
+        }
+        li{
+
+            position: relative;
+        }
+        /* Когда активен */
+        nav li:hover{
+            background-color: #f1ae7eda;
+        }
+        li:focus-within>.submenu,
+        li:hover .submenu{
+            display: flex;
+            background-color: #EE7D2B;
+        }
+        
+        nav a:hover{
+            
+            background-color: #f1ae7eda;
+        }
+        nav a:focus{
+            
+            background-color: #f1ae7eda;
+        }
+        nav .submenu{
+            z-index: 20;
+            list-style: none;
+            display: none;
+            flex-direction: column;
+            position: absolute;
+        }
+        .head>h1{
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            /* margin-left: 10%; */
+            float: left;
+        }
+        nav{ 
+            margin-left: 50%;
+            /* width: 400px; */
+        }
+        header{
+            /* width: 100%; */
+           
+        background-color: #EE7D2B;
+        height: 100px;
+      
+        }
+        .head{
+            position: relative;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+</style>
+<header>
+        <div class="head">
+        <h1><a href="http://127.0.0.1:8000" class="head-a">СКБ</a> </h1>
+        <nav>
+            <ul class="mainmenu"> 
+            <li><a href="http://127.0.0.1:8000"><h3>Главная</h3></a>
+            <ul class="submenu">
+                <li><a href="#"class="yak1"><h3>СКБ это</h3></a></li>
+                <li><a href="#"class="yak2"><h3>Кто мы</h3></a></li>
+                <li><a href="#"class="yak3"><h3>МАТЕРИАЛЫ</h3></a></li>
+                <li><a href="#"class="yak4"><h3>Где мы</h3></a></li>
+            </ul>
+        </li>
+            <li><a href="http://127.0.0.1:8000/blog/"><h3>Материалы</h3></a></li>
+           
+        </ul></nav>
+    </div>
+    </header>
+    {% endblock header %}

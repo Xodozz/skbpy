@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static ' css/font.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'css/font.css'%}"> -->
+    <style>
+    /* Настройка слайдер */
+        .slider{
+            text-align: center;
+            position: relative;
+        }
+        .slider .slick-slide{
+            margin-top: 80px;
+        }
+        .slick-track{
+            display: flex;
+        }
+        .slick-list {
+            overflow: hidden;
+        }
+        .slider .slick-arrow{
+            transition: all 0.2s ease;
+            cursor: pointer;
+            margin: -60px 0 0 0 ;
+            font-size: 0;
+            z-index: 10;
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            top: 50%;
+            border: none;
+        }
+        .slider .slick-arrow:hover{
+            transform: scale(1.2);
+            
+        }
+      
+        .slider .slick-arrow.slick-prev{
+           
+            left:0;
+            background: url("{%static 'img/left-arrow-first.png'%}" ) no-repeat;
+            background-size: 100% 100%;
+        }
+        .slider .slick-arrow.slick-next{
+            right:0;
+            background: url("{%static 'img/right-arrow-first.png'%}" ) no-repeat;
+            background-size: 100% 100%;
+        }
+        /* Точки (булиты) */
+    .slider .slick-dots{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+   
+    .slider .slick-dots li{
+        list-style: none;
+        margin: 0px 10px;
+    }
+   
+
+
+/* Элемент точки */
+    .slider .slick-dots li button{  
+        border: none;
+        margin-top: 60px;
+        font-size: 0;
+        width: 10px;
+        height: 10px;
+        background-color: white;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+    }
+    .slider .slick-dots li button:hover{
+        cursor: pointer;
+        opacity: 0.33;
+        background-color: white;
+    }
+    .slider .slick-dots li.slick-active button{
+        background-color: transparent;
+        border: 2px solid white;
+    }
+    .slider_item img{
+        max-width: 1200px;
+        height: 550px;
+    }
+    .text-four{
+    
+        
+      
+    }
+    .text-four img{
+        position: relative;
+    
+        width: 150px;
+        
+      
+    }
+   .vk{ 
+       transition: all 0.2s ease;
+       margin-top: 25px;
+       right: 15%;
+   }
+   .vk:hover{
+    transform: scale(1.2);
+   }
+   .tg{
+    left: 15%;
+    transition: all 0.2s ease;
+    margin-top: 25px;
+    
+   }
+   .tg:hover{
+    transform: scale(1.2);
+   }
+   .three-but a{
+  
+       text-decoration: none;
+       
+   }
+   .three-but{
+    transition: all 0.2s ease;
+    color: #FFA255;
+    height: 80px;
+       width: 220px;
+       border: none;
+       text-shadow: none;
+       border-radius: 120px;;
+        margin-top: 50px;
+    cursor: pointer;
+   }
+   .three-but:hover{
+       transform: scale(1.2);
+   }
+   .head-a{
+    text-shadow: 1px 1px 1px black;
+}
+    </style>
+</head>
+<body>
+    {% block header %} {% include 'header.html' %} {% endblock header %}
+    <div class="con-slider">
+        <div class="slider">
+        <div class="slider_item"><img data-lazy="{%static 'img/foto.jpg'%}" alt="">
+        </div>
+        <div class="slider_item"><img data-lazy="{%static 'img/foto.jpg'%}" alt="">
+        </div>
+        <div class="slider_item"><img data-lazy="{%static 'img/cat.jpg'%}" alt="">
+        </div>
+        <div class="slider_item"><img data-lazy="{%static 'img/cat.jpg'%}" alt="">
+        </div>
+        <div class="slider_item"><img data-lazy="{%static 'img/cat.jpg'%}" alt="">
+        </div>
+        </div>
+    </div>
+    <div class="maincon-content">
+    <div class="block con-one" id="ya1"><h2> СКБ ЭТО</h2>
+    <div class="main-conteiner text-one"><h4>Студенческое конструксторское бюро нашего любимого колледжа связи. здесь студенты могут воплотить в жизнь абсолютно различные проекты: от ... до чпу станков. Студентам в реализации их идей помогают квалифицированные специалисты - преподаватели колледжа связи. Здесь в СКБ вы можете научиться работать в различных программах проектирования, таких как Altium, Компас 3д и многих других. В данный момент, участники СКБ занимаются разработкой собственного ЧПУ, предназначенного для упрощения и повышения качества печатных плат собственного производства. Подитожив, можно сказать что СКБ - это сферический пиздец в вакууме. ждём вас в своих рядах.</h4></div>
+    </div>
+    <div class="block con-two"><h2>КТО МЫ</h2>
+    <div class="main-conteiner text-two"><h4>Команда СКБ состоит из студентов колледжа ВКСиИТ, обучающихся на специальностях Техническое обслуживание и Сети связи. Мы занимаемся разработкой и изготовлением различных электронных устройств, ремонтом и модернизацией различной техники (к примеру телефонов, радиоприёмников, проигрывателей и тд). Мы всегда готовы помочь друг другу в реализации наших идей. Наш девиз: хочу вина и паяльник. Готовы работать вместе с вами в нашем дружном коллективе?</h4>
+    </div>
+    </div>
+    <div class="block con-three"><h2>МАТЕРИАЛЫ</h2>
+    <div class="main-conteiner text-three"><h4>Наши конструкторы делают множество различных и интересных проектов. С нашими работами вы можете ознакомиться перйдя в раздел Материалы</h4>
+    <a href="http://127.0.0.1:8000/home/blog/"><button class="three-but"><h3>Читать ></h3></button></a>
+    </div>
+    </div>
+    <div class="block con-four"><h2>ГДЕ МЫ</h2>
+    <div class="main-conteiner text-four"><a href="https://vk.com/studkb"><img src="{%static 'img/Vector2.svg'%}" alt="" class="vk"></a> <a href="#"><img src="{%static 'img/Vector-1.svg'%}" alt="" class="tg"></a>
+        </div>
+   
+</div>
+    <img src="{%static 'img/arrow-up.png'%}" alt="" class="arrow-up">
+    <footer class=><h4>По всем техническим вопросам, Вы можете спросить тут <a href="#">ссылка</a> </h4></footer>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{%static 'js/slick/slick.min.js'%}" ></script>
+    <script src="{%static 'js/script.js'%}" ></script>
+   
+</body>
+</html> 

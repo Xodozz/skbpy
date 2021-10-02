@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+<div class="content">
+    <div class="main-text"><h1>Метериалы</h1></div>  
+      {% for post in post_list %}
+    <div class="block con-three">
+        <div class="conteiner text-three">
+            <h2>{{ post.title }}</h2>
+            <img src="{%static 'img/img-not.png'%}" alt="">
+            <div class="block-text-con">
+            <p class="conteiner-text"><h4>{{post.content|slice:":400"|striptags|safe}}...</h4></p>
+            <p></p>
+        </div>
+        <a href="{% url 'post_detail' post.slug  %}" ><button class="three-but"><h3>Читать ></h3></button> </a>
+            <p class="author">Публикация: {{ post.author }} | {{ post.created_on}}</p>
+        </div>
+        </div>
+        
+        {% endfor %}
+       <img src="{%static 'img/arrow-up.png'%}" alt="" class="arrow-up">
+       
+        {% if is_paginated %}
+  <ul>
+    {% if page_obj.has_previous %}
+    <li><a href="?page={{ page_obj.previous_page_number }}"><button class="button-prev"> <h4><Назад</h4> </button></a></li>
+    {% endif %}
+    {% if page_obj.has_next %}
+    <li><a href="?page={{ page_obj.next_page_number }}"><button class="button-next"> <h4>Дальше></h4> </button></a></li>
+    {% endif %}
+  </ul>
+        
+
+{% endif %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{%static 'js/script.js'%}" ></script>
+{%endblock%}
