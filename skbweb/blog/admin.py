@@ -12,6 +12,7 @@ class PostAdmin(SummernoteModelAdmin):
     readonly_fields = ["preview"]
 
     def preview(self, obj):
+
         return mark_safe(f'<img src="{obj.image.url}" style="max-height: 200px;">')
 
 

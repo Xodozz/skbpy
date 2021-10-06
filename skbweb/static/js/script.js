@@ -10,7 +10,19 @@ $( document ).ready(function(){
         infinity:true,
     });
 });
-
+$( document ).ready(function(){
+  $('.slider2').slick({
+      arrows:true,
+      dots:true,
+      adaptiveHeight: true,
+      speed:1000,
+      easing:'ease',
+      autoplay:false,
+      autoplaySpeed:1000,
+      infinity:true,
+      
+  });
+});
 $( document ).ready(function(){
 
     $('.yak1').on('click', function(e){
