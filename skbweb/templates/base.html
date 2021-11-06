@@ -9,8 +9,25 @@
         <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
             crossorigin="anonymous" /> -->
             <link rel="stylesheet" href="{% static 'css/main.css' %}">
-        
+            
             <style>
+                .content h1{
+                    color: #ffa255;
+                }
+                .text-three h2{
+                    color: white;
+                }
+                .submenu li{
+    display: none;
+}
+               @font-face {
+	font-family: 'Montserrat-Regular', sans-serif;
+	src: url(../font/Montserrat-Regular.ttf);
+}
+@font-face {
+	font-family: 'Montserrat-Light', sans-serif;
+	src: url(../font/Montserrat-Light.ttf);
+}
               .conteiner img{
                     top: 100px;
                     left: 145px;
@@ -116,86 +133,30 @@ cursor: pointer;
 margin-top: 50px;
 
 }
-.mainmenu{
-            height: 100px;
-            display: flex;
-            padding-left: 0;
-            list-style: none;
-        }
-     nav a{  
-            color: white;
-            line-height: 60px;
-            display: block;
-            text-decoration: none;
-            text-align: center;
-            width: 270px;
-            height: 60px;
-            /* height: 68px; */
-            padding:1em;
-            white-space: nowrap;
-            
-        }
-        .head-a {
-            color: white;
-            text-decoration: none;
 
-        }
-        li{
-
-            position: relative;
-        }
-        /* Когда активен */
-        nav li:hover{
-            background-color: #f1ae7eda;
-        }
-        nav a:hover{
-            
-            background-color: #f1ae7eda;
-        }
-        nav a:focus{
-            
-            background-color: #f1ae7eda;
-        }
-       
-        .head>h1{
-            color: white;
-            text-align: center;
-            line-height: 100px;
-            margin-left: 10%;
-            float: left;
-        }
-        nav{ 
-            margin-left: 50%;
-            width: 400px;
-        }
-        header{
-        background-color: #EE7D2B;
-        height: 100px;
-      
-        }
-        .head{
-            max-width: 1600px;
-            margin: 0 auto;
-        }
-        .table {
-	width: 100%;
+     
+        table {
+	font-family: 'Montserrat-Light',sans-serif;
 	margin-bottom: 20px;
 	border: 1px solid #dddddd;
 	border-collapse: collapse; 
+}
+table{
+   
+    margin: 0 auto;
 }
 table th {
 	font-weight: bold;
 	padding: 5px;
 	background: #efefef;
-	border: 1px solid #dddddd;
+    background-color: #EE7D2B;
+    color: white;
 }
 table td {
 	border: 1px solid #dddddd;
 	padding: 5px;
 }
-.head-a{
-    text-shadow: 1px 1px 1px black;
-}
+
 /* Полнвый контент */
 .full-content{
     padding-bottom: 200px;
@@ -209,22 +170,12 @@ table td {
     text-align: center;
         padding-top: 150px;
 }
+
 </style>
     </head>
 
     <body>
-        <header>
-            <div class="head">
-            <h1><a href="http://127.0.0.1:8000" class="head-a">СКБ</a> </h1>
-            <nav>
-                <ul class="mainmenu"> 
-                <li><a href="http://127.0.0.1:8000"><h3>Главная</h3></a>
-            </li>
-                <li><a href="http://127.0.0.1:8000/blog/"><h3>Материалы</h3></a></li>
-               
-            </ul></nav>
-        </div>
-        </header>
+        
         {% block content %}
         <!-- Content Goes here -->
         {% endblock content %}

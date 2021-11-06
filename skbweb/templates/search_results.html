@@ -1,10 +1,194 @@
 <!DOCTYPE html>
+
+{% load static %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
+    <title>Поиск</title>
+    <link rel="shortcut icon" href="{% static '/img/favicon.ico' %}" />
+    <link rel="stylesheet" href="{% static '/css/main.css' %}">
+    <style>
+      .text-three h2{
+                    color: white;
+                }
+       iframe,table,hr,.submenu li{
+    display: none;
+}
+    .conteiner img{
+      top: 100px;
+      left: 145px;
+      position: absolute;
+      max-width: 348px;
+      max-height: 348px;
+  }
+  .author{ top: 480px;
+      left: 145px;
+      position: absolute;
+  }
+  body{
+      max-height: 2700px;
+  }
+    .three-but a{
+
+text-decoration: none;
+
+}
+
+.block-text-con{
+text-align: left;
+max-width: 900px;
+margin-top: 80px;
+margin-left: 40%;
+
+}
+.three-but{
+top: 350px;
+right: 25%;
+position: absolute;
+transition: all 0.2s ease;
+color: #FFA255;
+height: 80px;
+width: 220px;
+border: none;
+text-shadow: none;
+border-radius: 120px;;
+/* margin:10% 0 0 38%; */
+cursor: pointer;
+}
+.three-but:hover{
+transform: scale(1.2);
+}
+.button-prev,.button-next{
+background-color:#FFA255 ;
+margin-top: 100px;
+position: absolute;
+transition: all 0.2s ease;
+color: white;
+height: 60px;
+width: 160px;
+border: none;
+text-shadow: none;
+cursor: pointer;
+
+}
+li{
+
+list-style: none;
+}
+.button-prev:hover{
+
+transform: scale(1.2);
+} 
+.button-next:hover{
+transform: scale(1.2);
+}
+.button-prev{
+left: 40%;
+/* position: absolute; */
+border-radius: 100px 0 0 100px;
+}
+.button-next{
+right: 40%;
+/* position: absolute; */
+border-radius: 0 100px 100px 0;
+}
+body{
+height: auto;
+}
+.content{
+
+padding-bottom: 200px;
+text-align: center;
+}
+
+.arrow-up{
+margin-top: 80px;
+}
+.conteiner{
+position: relative;
+height: 500px;
+color: white;
+margin: 0 auto;
+padding: 20px 20px 20px 20px;
+margin-top: 80px;
+background-color: #FFA255;
+margin-top: 150px;
+}
+.container-link{
+padding: 20px 40px 20px 40px;
+margin-top: 50px;
+
+}
+
+
+table {
+font-family: 'Montserrat-Light',sans-serif;
+margin-bottom: 20px;
+border: 1px solid #dddddd;
+border-collapse: collapse; 
+}
+table{
+
+margin: 0 auto;
+}
+table th {
+font-weight: bold;
+padding: 5px;
+background: #efefef;
+background-color: #EE7D2B;
+color: white;
+}
+table td {
+border: 1px solid #dddddd;
+padding: 5px;
+}
+
+/* Полнвый контент */
+.full-content{
+padding-bottom: 200px;
+
+background-color: white;
+max-width: 1600px;
+margin: 0 auto;
+
+}
+.main-text{
+text-align: center;
+padding-top: 150px;
+}
+
+</style> 
+  </head>
+
 <body>
-$END$
+  {% block header %} {% include 'header.html' %} {% endblock header %}
+  <div class="content">
+    <div class="main-text"><h1>Результат поиска:</h1></div>  
+      {% for post in post_list %}
+    <div class="block con-three">
+        <div class="conteiner text-three">
+            <h2>{{ post.title }}</h2>
+            {% if post.image %}
+            <p><img src="{{post.image.url}}"></p>
+            {% else %}
+            <p><img src="{%static 'img/no-image-big.png'%}" alt=""></p>
+            {% endif %}
+            <div class="block-text-con">
+            <p class="conteiner-text"><h4>{{post.content|safe|truncatewords_html:16}}</h4></p>
+            </div>   
+          <a href="{% url 'post_detail' post.slug  %}"><button class="three-but"><h3>Читать ></h3></button></a>
+      
+            <p class="author">Публикация: {{ post.author }}  {{ post.created_on}}</p>
+        </div>
+        </div>
+        
+        {% endfor %}
+       <img src="{%static 'img/arrow-up.png'%}" alt="" class="arrow-up">
+       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="{%static 'js/script.js'%}" ></script>
+  </div>
+
+
 </body>
 </html>

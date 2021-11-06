@@ -1,4 +1,5 @@
-    {% block header%}
+{% load static %}
+   {% block header%}
 <style>
       .mainmenu{
             height: 100px;
@@ -52,7 +53,8 @@
             flex-direction: column;
             position: absolute;
         }
-        .head>h1{
+        .head h1{
+            margin-left: 4%;
             color: white;
             text-align: center;
             line-height: 100px;
@@ -60,12 +62,16 @@
             float: left;
         }
         nav{ 
-            margin-left: 50%;
-            /* width: 400px; */
+            position: absolute;
+            margin-left: 32%;
+          
+
+            
         }
+        
         header{
             /* width: 100%; */
-           
+            
         background-color: #EE7D2B;
         height: 100px;
       
@@ -75,6 +81,71 @@
             max-width: 1600px;
             margin: 0 auto;
         }
+        form{
+            
+        }
+        input{
+            transition: all 0.2s ease;
+            float: left;
+            margin-left: 10px;
+            border: none;
+            padding: 10px;
+            border-radius: 100px;
+            margin-top: 28px;
+            color: #EE7D2B;
+        }
+        input:hover{
+            transform: scale(1.1);
+        }
+        ::placeholder{
+            color: #ee7c2bbe;
+        }
+        .search-button{
+           /* width: 35px;
+           height: 35px; */
+            background-color: #EE7D2B;
+            background-image: url("{%static 'img/bi_search.svg'%}" );
+            background-size: 100% 100%;
+            border: none;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            margin-top: 30px;
+            margin-left: 20px;
+            transition: all 0.2s ease;
+
+        }
+        .search-button:hover{
+            transform: scale(1.1);
+        }
+        .search-button img{
+            
+            /* border: none;
+            width: 35px;
+            height: 35px;
+            line-height: 60px;
+            padding: 1em; */
+        }
+        /* @media screen and (max-width: 1310px) {
+            nav{ margin-left: 40%;
+            }
+           
+        
+        }
+        @media screen and (max-width: 1024px) {
+           
+        }
+            
+        @media screen and (max-width: 1024px) {
+            nav{ margin-left: 35%;
+                width: 30%;
+            }}
+        @media screen and (max-width: 900px) {
+            nav a { width: 190px;
+            }}
+        @media screen and (max-width: 680px) {
+            nav a { width: 120px;
+            }} */
 </style>
 <header>
         <div class="head">
@@ -90,8 +161,18 @@
             </ul>
         </li>
             <li><a href="http://127.0.0.1:8000/blog/"><h3>Материалы</h3></a></li>
+            <form action="{% url 'search_results' %}" method="get">
+                <input name="q" type="text" placeholder="Поиск по сайту...">
+                <button class="search-button"></button>
+            </form> 
            
-        </ul></nav>
+        </ul>
+       
+    </nav>
+   
+    
     </div>
+    
     </header>
+        
     {% endblock header %}

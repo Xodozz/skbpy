@@ -8,17 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-		<link rel="shortcut icon" href="{% static '/img/favicon.ico' %}" />
+	<link rel="shortcut icon" href="{% static '/img/favicon.ico' %}" />
     <link rel="stylesheet" href="{% static '/css/main.css' %}">
     <style>
-           .text-four{
+        .text-four{
+            position: relative;
+            text-align: center;
+            height: 320px;
+        }
+ .vk, .tg{
     
-        
-      
-}
-.text-four img{
-    position: relative;
-
+  
     width: 150px;
     
   
@@ -26,13 +26,13 @@
 .vk{ 
    transition: all 0.2s ease;
    margin-top: 25px;
-   right: 15%;
+   
 }
 .vk:hover{
 transform: scale(1.2);
 }
 .tg{
-left: 15%;
+margin-left: 40%;
 transition: all 0.2s ease;
 margin-top: 25px;
 
@@ -40,40 +40,57 @@ margin-top: 25px;
 .tg:hover{
 transform: scale(1.2);
 }
+.youtube{
+    
+    position: absolute;
+    width: 350px;
+    transition: all 0.2s ease;
+    display: inline-block;
+    left: 39%;
+    top:45%;
+}
+.youtube:hover{
+    
+    transform: scale(1.2);
+
+}
 .three-but a{
 
    text-decoration: none;
    
 }
 .three-but{
+position: absolute;
+top: 140px;
+left: 70%;
 transition: all 0.2s ease;
 color: #FFA255;
 height: 80px;
-   width: 220px;
-   border: none;
-   text-shadow: none;
-   border-radius: 120px;;
-    margin-top: 50px;
+width: 220px;
+border: none;
+text-shadow: none;
+border-radius: 120px;;
+margin-top: 150px;
 cursor: pointer;
 }
 .three-but:hover{
    transform: scale(1.2);
 }
-.head-a{
-text-shadow: 1px 1px 1px black;
-}
+
 .block4-link {
     display: block;
     color:black;
     line-height: 1;
     text-decoration: none;
     cursor: pointer;
-    position: relative;}
-     .block4-link ::after{
+    position: relative;
+}
+    
+     .block4-link :after{
     margin-top: 10px;
-     display: block;
+    display: block;
     content: "";
-    background-color: rgb(97, 97, 97);
+    background-color: #ffa255;
     height: 3px;
     width: 2%;
     left: 50%;
@@ -149,8 +166,7 @@ text-shadow: 1px 1px 1px black;
         margin: 0px 10px;
     }
    
-
-
+   
 /* Элемент точки */
     .slider .slick-dots li button{  
         border: none;
@@ -172,8 +188,7 @@ text-shadow: 1px 1px 1px black;
         background-color: transparent;
         border: 2px solid white;
     }
-    .slider_item img{
-        max-width: 1200px;
+    .slider img{
         height: 550px;
     }
     /* конец настройки слайдера */
@@ -259,31 +274,25 @@ text-shadow: 1px 1px 1px black;
         background-color: transparent;
         border: 2px solid white;
     }
-    .slider_item img{
-        
-        max-width: 1200px;
-      
-    }
-    .slider2-content img{
-      
-     
-    }
+ 
+   
     .img-slider2 img{
         
         max-width: 300px;
         max-height: 300px;
     }
     .img-slider2{
+        
         float: left;
-        margin-left: 240px;
+        margin-left: 16%;
     }
     .text-slider2{
-        background-color: 1px solid rgb(0, 0, 0);
+       
         color: white;
         top: 80px;
         position: absolute;
-        right: 140px;
-        left: 600px;
+        left: 50%;
+        max-width: 40%;
 
     }
    
@@ -292,13 +301,14 @@ text-shadow: 1px 1px 1px black;
     }
     .slider2 .three-but{
       position: absolute;
-      right: 200px;
+      /* right: 20%; */
     }
    
     .author{
         top: 140px;
         bottom: 0;
-        position: absolute; 
+        position: absolute;
+        
     }
     .slider2{
         margin-top: 150px;
@@ -309,35 +319,158 @@ text-shadow: 1px 1px 1px black;
     .slider2 .slick-slide{
             margin-top: 120px;
         }
-    .three-but{
-        position: absolute;
-        top: 140px;
-        left: 500px;}
+   
         .slider2 .slick-current{
         height: 400px;
         }
-    .text-slider2 h2{
-       
-    }
+  
    
-    .slider2-oglavl{ color: white;}
+    .slider2-oglavl{ color: white;
+    position: absolute;
+        left: 56%;
+        
+    }
+    footer{
+        height: 100px;
+        padding-top: 20px;
+    }
+    .link-footer{
+        
+        margin-left: 10%;
+        list-style: none;
+        
+        position: relative;
+     
+    }
+    footer a{
+    
+    color:rgb(255, 255, 255);
+    
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    }
+    footer a::after{
+    top: 20px;
+    left: 50%;
+    content: "";
+    background-color: #ffffff;
+    height: 3px;
+    width: 15px;
+   
+    position: absolute;
+    -webkit-transition: width .3s ease-in-out;
+    -moz--transition: width .3s ease-in-out;
+    transition: width .3s ease-in-out;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+    }
+    footer a:hover:after{
+        width: 30px;
+    }
     /* конец настройки слайдера2 */
+  
+    /* Первый слайдер */
+    @media screen and (max-width: 1024px) {
+         .slider .slick-arrow{
+            width: 90px;
+            height: 90px;
+        }
+    }
+    @media screen and (max-width: 900px) {
+         .slider .slick-arrow{
+           
+            width: 60px;
+            height: 60px;
+            
+        }
+        .slider img{
+            height: 350px; 
+        }
+        
+    }
+    @media screen and (max-width: 640px) {
+         .slider .slick-arrow{
+           
+            width: 60px;
+            height: 60px;
+            
+        }
+        .slider img{
+            height: 200px; 
+        }
+        
+    }
+    /* Конец первый слайдер */
+     /*  второй слайдер */
+  @media screen and (max-width: 1400px) {
+	.author {
+	font-size: 15px;     
+		
+	}
+	.slider2-content  h2{
+        margin-right: 10%;
+		font-size: 20px; 
+	}
+   
+	
+}
+@media screen and (max-width: 1200px) {
+	.author {
+	font-size: 15px;     
+		
+	}
+	.slider2-content h2{
+        
+		
+	}
+	.text-slider2{
+
+	}
+	.three-but{
+		left: 55%;
+	}
+	.img-slider2{
+		margin-left: 15%;
+	}
+	.slider2 img{
+		width: 80%;
+	}
+	.slider2-oglavl{
+		font-size: 10px;
+	}
+	
+	nav h3 {
+		font-size: 15px;
+	}
+	
+    .slider2 .slick-arrow{
+        width: 50px;
+        height: 50px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .slider2 img{
+		float: none;
+	}
+
+    
+}
+/* Конец второй слайдер */
+
     </style>
 </head>
 <body>
+   
     {% block header %} {% include 'header.html' %} {% endblock header %}
    <div class="con-slider">
         <div class="slider">
-        <div class="slider_item"><img data-lazy="{%static 'img/foto.jpg'%}" alt="">
+            {% for item in settings %}
+        <div class="slider_item"><img data-lazy="{{item.images.url}}" alt="">
         </div>
-        <div class="slider_item"><img data-lazy="{%static 'img/foto.jpg'%}" alt="">
-        </div>
-        <div class="slider_item"><img data-lazy="{%static 'img/cat.jpg'%}" alt="">
-        </div>
-        <div class="slider_item"><img data-lazy="{%static 'img/cat.jpg'%}" alt="">
-        </div>
-        <div class="slider_item"><img data-lazy="{%static 'img/cat.jpg'%}" alt="">
-        </div>
+        
+        {% endfor %}
         </div>
     </div>
     <div class="maincon-content">
@@ -348,48 +481,60 @@ text-shadow: 1px 1px 1px black;
     <div class="main-conteiner text-two"><h4>Команда СКБ состоит из студентов колледжа ВКСиИТ, обучающихся на специальностях Техническое обслуживание и Сети связи. Мы занимаемся разработкой и изготовлением различных электронных устройств, ремонтом и модернизацией различной техники (к примеру телефонов, радиоприёмников, проигрывателей и тд). Мы всегда готовы помочь друг другу в реализации наших идей. Наш девиз: хочу вина и паяльник. Готовы работать вместе с вами в нашем дружном коллективе?</h4>
     </div>
     </div>
-    <div class="block block4 con-three"><a href="http://127.0.0.1:8000/blog/" class="block4-link"><h2> МАТЕРИАЛЫ</h2></a>
-     
+    
+    <div class="block block4 con-three"><a href="http://127.0.0.1:8000/blog/" class="block4-link"><h2>МАТЕРИАЛЫ</h2></a>
+      {% for post in banner_list %}
+        {{ post.image }}
+        {% endfor %}
         <div class="slider2 single-item">
             {% for post in post_list %}
             <div class="slider2-content"> 
+                <h2 class="slider2-oglavl">{{ post.title }}</h2> 
             <div class="img-slider2">
+                
               {% if post.image %}
                 <img data-lazy="{{post.image.url}}">
                 {% else %}
                 <img src="{%static 'img/no-image-big.png'%}" alt="">
                 {% endif %}
             </div> 
-            <h2 class="slider2-oglavl">{{ post.title }}</h2> 
+            <a href="{% url 'post_detail' post.slug  %}" ><button class="three-but"><h3>Читать ></h3></button> </a>
+           
                  <div class="text-slider2">
-                    <h4>{{post.content|slice:":180"|striptags|safe}}...</h4>
-                <a href="{% url 'post_detail' post.slug  %}" ><button class="three-but"><h3>Читать ></h3></button> </a>
-                <p class="author">Публикация: {{ post.author }} | {{ post.created_on}}</p>
+                    <h4>{{post.content|safe|truncatewords_html:8}}</h4>
+                    <p class="author">Публикация:  {{ post.created_on}}</p>
+               
             </div>
             </div>
             {% endfor %}
             </div>
             </div>
-            <div class="block con-four"><h2>  ГДЕ МЫ</h2>
-            <div class="main-conteiner text-four"><a href="https://vk.com/studkb"><img src="{%static 'img/Vector2.svg'%}" alt="" class="vk"></a> <a href="#"><img src="{%static 'img/Vector-1.svg'%}" alt="" class="tg"></a>
-                </div>
+            <div class="block con-four"><h2>ГДЕ МЫ</h2>
+            <div class="main-conteiner text-four">
+                <a href="https://vk.com/studkb"><img src="{%static 'img/Vector2.svg'%}" alt="" class="vk"></a> 
+                <a href="https://www.youtube.com/channel/UCd3pJlz_pqhXi6ZHTc6-jlw"><img src="{%static 'img/youtube.svg'%}" alt="" class="youtube"></a>
+                <a href="https://t.me/skb_35"><img src="{%static 'img/Vector-1.svg'%}" alt="" class="tg"></a>
+            </div>
            
         </div>
             <img src="{%static 'img/arrow-up.png'%}" alt="" class="arrow-up">
-            <footer class=><h4>По всем техническим вопросам, Вы можете спросить тут <a href="#">ссылка</a> </h4></footer>
+            <footer>
+               <ul class="link-footer">
+                    
+                   <li> <h4>По всем техническим вопросам, Вы можете спросить  <a href="https://vk.com/xodozz">тут</a> 
+                    </h4></li>
+                    
+                   <li> <h4>Сайт  <a href="https://vksit.ru/#/">ВКСиИТ</a> 
+                    </h4></li>
+                    
+                </ul>
+                </footer>
             </div> 
                 </div>
                 </div>
                 </div>
                 </div>
         </div>
-              
-            
-                    
-               
-               
-   
-     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{%static 'js/slick/slick.min.js'%}" ></script>
     <script src="{%static 'js/script.js'%}" ></script>

@@ -7,7 +7,14 @@
 	font-family: 'Ronduit';
 	src: url(../font/RonduitCapitals-Light.otf);
 }
-
+/* @font-face {
+	font-family: 'Montserrat-Regular', sans-serif;
+	src: url(../font/Montserrat-Regular.ttf);
+}
+@font-face {
+	font-family: 'Montserrat-Light', sans-serif;
+	src: url(../font/Montserrat-Light.ttf);
+} */
 body {
 	background-color: #ffa15550;
 }
@@ -20,6 +27,9 @@ body {
 	margin-top: -20px;
 }
 /* Не основной контент */
+.head-a{
+	text-shadow: 1px 1px 1px black;
+	}
 .content {
 	background-color: white;
 	max-width: 1600px;
@@ -36,7 +46,8 @@ body {
 	margin: 0 auto;
 	max-width: 1600px;
 }
-h1 {
+a,li,
+h1,p{
 	font-family: 'Ronduit';
 }
 /* Блоки */
@@ -54,11 +65,15 @@ h1 {
 	background-color: #ffa255;
 	margin-top: 150px;
 }
+.maincon-content {
+	width: 80%;
+}
 /* Не основные */
 
 /* ТЕЕЕКСТА */
 h2{
 	text-align: center;
+	color: #ffa255;
 }
 h1,
 h2,
@@ -91,41 +106,10 @@ h4 {
 footer {
 	color: white;
 	/* padding: 50px 20px 50px 20px; */
-	margin-top: 80px;
+	
 	background-color: #ffa255;
 	margin-top: 150px;
-	height: 100px;
+	max-height: 70px;
 }
-@media screen and (max-width: 1500px) {
-	.text-four img {
-		height: 100px;
-	}
-	.maincon-content {
-		width: 83%;
-	}
-	nav h3 {
-		font-size: 15px;
-	}
-	a {
-		width: 10px;
-	}
-	.head nav {
-		/* margin-left: 40%; */
-	}
-}
-@media screen and (max-width: 1100px) {
-	.head nav {
-	}
-}
-@media screen and (max-width: 900px) {
-	.mainmenu a {
-		width: 60px;
-	}
-	nav h3 {
-		font-size: 10px;
-	}
-
-	.head nav {
-		margin-left: 30%;
-	}
-}
+ 
+ 

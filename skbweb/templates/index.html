@@ -1,7 +1,40 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+<style>
+  iframe,table,hr, .submenu li, .block-text-con img {
+    display: none;
+}
+  ul{
+   
+  }
+  .paginate{
+    
+    max-width: 540px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    margin-top: 100px;
+  }
+ .paginate li{
+   padding: 0 3px 0px 3px;
+  display: inline-block;
+  
+  }
+  .paginate .active:hover{
+    border-bottom: 2px solid #ffc494;
 
+  }
+  .paginate a{
+    
+    text-decoration: none;
+    color: #FFA255;
+  }
+  .count{
+    border-bottom: 2px solid #FFA255;
+  }
+  
+</style>
+{% block header %} {% include 'header.html' %} {% endblock header %}
 
 <div class="content">
     <div class="main-text"><h1>Метериалы</h1></div>  
@@ -15,17 +48,11 @@
             <p><img src="{%static 'img/no-image-big.png'%}" alt=""></p>
             {% endif %}
             <div class="block-text-con">
-            <p class="conteiner-text"><h4>{{post.content|slice:":400"|striptags|safe}}...</h4></p>
-            <p></p>
-        </div>   
-    
-  
+            <p class="conteiner-text"><h4>{{post.content|safe|truncatewords_html:16}}</h4></p>
+            </div>   
+          <a href="{% url 'post_detail' post.slug  %}"><button class="three-but"><h3>Читать ></h3></button></a>
       
-
-    
-        <a href="{% url 'post_detail' post.slug  %}" ><button class="three-but"><h3>Читать ></h3></button> </a>
-      
-            <p class="author">Публикация: {{ post.author }} | {{ post.created_on}}</p>
+            <p class="author">Публикация:   {{ post.created_on}}</p>
         </div>
         </div>
         
@@ -33,17 +60,31 @@
        <img src="{%static 'img/arrow-up.png'%}" alt="" class="arrow-up">
        
         {% if is_paginated %}
-  <ul>
+        <div class="paginate">
+  <ul class=""> 
     {% if page_obj.has_previous %}
-    <li><a href="?page={{ page_obj.previous_page_number }}"><button class="button-prev"> <h4><Назад</h4> </button></a></li>
+
+   <li> <a href="?page=1">В начало</a></li> 
+   <li> <a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li> 
     {% endif %}
+    {% for i in page_obj.paginator.page_range %}
+        {% if i > page_obj.number|add:-2 and i < page_obj.number|add:3 %}
+            {% if page_obj.number == i  %}
+                <li class="page-item " aria-current="page"><a class="count" href="#"> {{ i }}  </a></li>
+            {% else %}
+                <li class="page-item active"><a class="page-link" href="?page={{ i }}"> {{ i }} </a></li> 
+            {% endif %}
+        {% endif %}
+    {% endfor %}
     {% if page_obj.has_next %}
-    <li><a href="?page={{ page_obj.next_page_number }}"><button class="button-next"> <h4>Дальше></h4> </button></a></li>
+    <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    <li><a href="?page={{ page_obj.paginator.num_pages }}">В конец</a></li>
     {% endif %}
   </ul>
-        
+</div>
   
 {% endif %}
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{%static 'js/script.js'%}" ></script>
 {%endblock%}
