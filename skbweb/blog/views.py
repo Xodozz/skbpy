@@ -5,6 +5,8 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 from django.views.generic import ListView,DetailView
 from django.db.models import Q
+from django.template import RequestContext
+
 
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
@@ -70,3 +72,14 @@ class SearchResultsView(ListView):
 
         return object_list
 
+
+def e_handler404(request,exception):
+    response = render(request, 'error404.html', status=404)
+    return response
+
+
+def e_handler500(request):
+
+    response = render(request,'error500.html',status=500)
+
+    return response

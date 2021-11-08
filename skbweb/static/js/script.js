@@ -5,7 +5,7 @@ $( document ).ready(function(){
         adaptiveHeight: true,
         speed:1000,
         easing:'ease',
-        autoplay:true,
+        autoplay:false,
         autoplaySpeed:1000,
         infinity:true,
         responsive: [
@@ -47,8 +47,8 @@ $( document ).ready(function(){
       adaptiveHeight: true,
       speed:1000,
       easing:'ease',
-      autoplay:false,
-      autoplaySpeed:1000,
+      autoplay:true,
+      autoplaySpeed:2000,
       infinity:true,
       responsive: [
         {

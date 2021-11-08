@@ -2,7 +2,9 @@
 	outline: none;
 	margin: 0;
 	padding: 0;
+	font-family: 'Ronduit';
 }
+
 @font-face {
 	font-family: 'Ronduit';
 	src: url(../font/RonduitCapitals-Light.otf);
@@ -46,10 +48,7 @@ body {
 	margin: 0 auto;
 	max-width: 1600px;
 }
-a,li,
-h1,p{
-	font-family: 'Ronduit';
-}
+
 /* Блоки */
 .block {
 	text-align: center;
@@ -70,7 +69,7 @@ h1,p{
 }
 /* Не основные */
 
-/* ТЕЕЕКСТА */
+/* ТЕЕЕКСТ */
 h2{
 	text-align: center;
 	color: #ffa255;
@@ -112,4 +111,160 @@ footer {
 	max-height: 70px;
 }
  
- 
+.mainmenu{
+	height: 100px;
+	display: flex;
+	padding-left: 0;
+	list-style: none;
+}
+nav a{  
+	color: white;
+	line-height: 60px;
+	display: block;
+	text-decoration: none;
+	text-align: center;
+	width: 270px;
+	height: 60px;
+	padding:1em;
+	white-space: nowrap;
+	
+}
+.head-a {
+	color: white;
+	text-decoration: none;
+
+}
+li{
+
+	position: relative;
+}
+/* Когда активен */
+nav li:hover{
+	background-color: #f1ae7eda;
+}
+li:focus-within>.submenu,
+li:hover .submenu{
+	display: flex;
+	background-color: #EE7D2B;
+}
+
+nav a:hover{
+	
+	background-color: #f1ae7eda;
+}
+nav a:focus{
+	
+	background-color: #f1ae7eda;
+}
+nav .submenu{
+	z-index: 20;
+	list-style: none;
+	display: none;
+	flex-direction: column;
+	position: absolute;
+}
+.head h1{
+	margin-left: 4%;
+	color: white;
+	text-align: center;
+	line-height: 100px;
+	/* margin-left: 10%; */
+	float: left;
+}
+.mainmenu{ 
+	position: absolute;
+	margin-left: 30%;
+
+
+	
+}
+nav a{
+	
+}
+.submenu{
+	left: 0;
+}
+header{
+	/* width: 100%; */
+	
+background-color: #EE7D2B;
+height: 100px;
+
+}
+.head{
+	position: relative;
+	max-width: 1600px;
+	margin: 0 auto;
+}
+
+input{
+	transition: all 0.2s ease;
+	float: left;
+	margin-left: 10px;
+	border: none;
+	padding: 10px;
+	border-radius: 100px;
+	margin-top: 28px;
+	color: #EE7D2B;
+	width: 250px;
+}
+input:hover{
+	transform: scale(1.1);
+}
+::placeholder{
+	color: #ee7c2bbe;
+}
+.search-button{
+   /* width: 35px;
+   height: 35px; */
+	background-color: #EE7D2B;
+	background-image: url("../img/bi_search.svg" );
+	background-size: 100% 100%;
+	border: none;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	margin-top: 30px;
+	margin-left: 20px;
+	transition: all 0.2s ease;
+
+}
+.search-button:hover{
+	transform: scale(1.1);
+}
+
+ @media screen and (max-width: 1400px) {
+	
+	.mainmenu{ 
+		
+		margin-left: 24%;
+	
+	
+		
+	}
+	.mainmenu a{
+		width: 200px;
+	}
+	h3,input{
+		font-size: 16px;
+	}
+	} 
+	@media screen and (max-width: 1100px) {
+	
+		.mainmenu{ 
+			
+			margin-left: 20%;
+		
+		
+			
+		}
+		.mainmenu a{
+			width: 160px;
+		}
+		h3,input{
+			font-size: 16px;
+		}
+		} 
+		@media screen and (max-width: 1100px){
+			
+		}

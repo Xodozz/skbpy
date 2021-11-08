@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ошибка 500</title>
+    <style>
+        .error{
+           
+            font-family: sans-serif;
+            width: 90%;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            color: #ffa255;
+        }
+        img{
+            max-width: 100%;
+        }
+        a{  color: #ffa255;
+            text-decoration: none;
+        }
+        a:hover{
+            font-family: sans-serif;
+            border-bottom: 1px solid #ffa255;;
+        }
+    </style>
+</head>
+<body>
+    <div class="error">
+    <p><h1>Ошибка 500</h1></p>
+    
+    <p> <img src="{%static 'img/saderr.svg'%}" alt=""></p>
+    <p><h2> Что-то пошло не так..</h2></p>
+    <p><a href="http://127.0.0.1:8000/"><h3>Вернуться на главную страницу</h3></a></p>
+    </div>
+   
+</body>
+</html>

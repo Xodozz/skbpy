@@ -1,0 +1,219 @@
+/* Настройка слайдер */
+.slider{
+	text-align: center;
+	position: relative;
+}
+.slider .slick-slide{
+	max-height: 700px;
+	margin-top: 80px;
+}
+.slick-track{
+	display: flex;
+}
+.slick-list {
+	overflow: hidden;
+}
+.slider .slick-arrow{
+	transition: all 0.2s ease;
+	cursor: pointer;
+	margin: -60px 0 0 0 ;
+	font-size: 0;
+	z-index: 10;
+	position: absolute;
+	width: 120px;
+	height: 120px;
+	top: 50%;
+	border: none;
+}
+.slider .slick-arrow:hover{
+	transform: scale(1.2);
+	
+}
+
+.slider .slick-arrow.slick-prev{
+   
+	left:0;
+	background: url("../img/left-arrow-first.png" ) no-repeat;
+	background-size: 100% 100%;
+}
+.slider .slick-arrow.slick-next{
+	right:0;
+	background: url("../img/right-arrow-first.png" ) no-repeat;
+	background-size: 100% 100%;
+}
+/* Точки (булиты) */
+.slider .slick-dots{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.slider .slick-dots li{
+list-style: none;
+margin: 0px 10px;
+}
+
+
+/* Элемент точки */
+.slider .slick-dots li button{  
+border: none;
+margin-top: 60px;
+font-size: 0;
+width: 10px;
+height: 10px;
+background-color: white;
+border-radius: 50%;
+width: 20px;
+height: 20px;
+}
+.slider .slick-dots li button:hover{
+cursor: pointer;
+opacity: 0.33;
+background-color: white;
+}
+.slider .slick-dots li.slick-active button{
+background-color: transparent;
+border: 2px solid white;
+}
+.slider img{
+height: 550px;
+}
+/* конец настройки слайдера */
+
+/* Настройка слайдер2 */
+
+.slider2{
+   
+	position: relative;
+}
+
+.slick-track{
+	display: flex;
+}
+.slick-list {
+	overflow: hidden;
+}
+.slider2 .slick-arrow{
+	transition: all 0.2s ease;
+	cursor: pointer;
+	margin: -60px 0 0 0 ;
+	font-size: 0;
+	z-index: 10;
+	position: absolute;
+	width: 80px;
+	height: 80px;
+	top: 50%;
+	border: none;
+	
+}
+.slider2 .slick-arrow:hover{
+	transform: scale(1.2);
+	
+}
+
+.slider2 .slick-arrow.slick-prev{
+   
+	left:20px;
+
+	background: url("../img/left-arrow-first.png" ) no-repeat;
+	background-size: 100% 100%;
+   
+ }
+ .slider2 .slick-arrow.slick-next{
+	right:20px;
+	background: url("../img/right-arrow-first.png" ) no-repeat;
+	background-size: 100% 100%;
+  
+ }
+
+/* Точки (булиты) */
+.slider2 .slick-dots{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.slider2 .slick-dots li{
+list-style: none;
+margin: 0px 10px;
+}
+
+
+
+/* Элемент точки */
+.slider2 .slick-dots li button{  
+border: none;
+
+font-size: 0;
+width: 10px;
+height: 10px;
+background-color: white;
+border-radius: 50%;
+width: 20px;
+height: 20px;
+}
+.slider2 .slick-dots li button:hover{
+cursor: pointer;
+opacity: 0.33;
+background-color: white;
+}
+.slider2 .slick-dots li.slick-active button{
+background-color: transparent;
+border: 2px solid white;
+}
+
+
+.img-slider2 img{
+
+max-width: 300px;
+max-height: 300px;
+}
+.img-slider2{
+
+float: left;
+margin-left: 16%;
+}
+.text-slider2{
+
+color: white;
+top: 80px;
+position: absolute;
+left: 50%;
+max-width: 40%;
+
+}
+
+.slider2-content{
+position: relative;
+}
+.slider2 .three-but{
+position: absolute;
+/* right: 20%; */
+}
+
+.author{
+top: 140px;
+bottom: 0;
+position: absolute;
+
+}
+.slider2{
+margin-top: 150px;
+background-color: #ffa255;
+height: 600px;
+
+}
+.slider2 .slick-slide{
+	margin-top: 120px;
+}
+
+.slider2 .slick-current{
+height: 400px;
+}
+
+
+.slider2-oglavl{ color: white;
+position: absolute;
+left: 56%;
+
+}

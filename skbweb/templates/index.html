@@ -2,36 +2,10 @@
 {% load static %}
 {% block content %}
 <style>
-  iframe,table,hr, .submenu li, .block-text-con img {
+ iframe,table,hr, .submenu li, .block-text-con img {
     display: none;
 }
-  ul{
-   
-  }
-  .paginate{
-    
-    max-width: 540px;
-    box-sizing: border-box;
-    margin: 0 auto;
-    margin-top: 100px;
-  }
- .paginate li{
-   padding: 0 3px 0px 3px;
-  display: inline-block;
-  
-  }
-  .paginate .active:hover{
-    border-bottom: 2px solid #ffc494;
-
-  }
-  .paginate a{
-    
-    text-decoration: none;
-    color: #FFA255;
-  }
-  .count{
-    border-bottom: 2px solid #FFA255;
-  }
+ 
   
 </style>
 {% block header %} {% include 'header.html' %} {% endblock header %}
@@ -52,7 +26,7 @@
             </div>   
           <a href="{% url 'post_detail' post.slug  %}"><button class="three-but"><h3>Читать ></h3></button></a>
       
-            <p class="author">Публикация:   {{ post.created_on}}</p>
+            <p class="author">  Публикация:{{ post.created_on}}</p>
         </div>
         </div>
         
@@ -64,8 +38,8 @@
   <ul class=""> 
     {% if page_obj.has_previous %}
 
-   <li> <a href="?page=1">В начало</a></li> 
-   <li> <a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li> 
+   <li> <a href="?page=1" class="first">В начало</a></li> 
+   <li> <a href="?page={{ page_obj.previous_page_number }}"><</a></li> 
     {% endif %}
     {% for i in page_obj.paginator.page_range %}
         {% if i > page_obj.number|add:-2 and i < page_obj.number|add:3 %}
@@ -77,14 +51,13 @@
         {% endif %}
     {% endfor %}
     {% if page_obj.has_next %}
-    <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
-    <li><a href="?page={{ page_obj.paginator.num_pages }}">В конец</a></li>
+    <li><a href="?page={{ page_obj.next_page_number }}">></a></li>
+    <li><a href="?page={{ page_obj.paginator.num_pages }}" class="last">В конец</a></li>
     {% endif %}
   </ul>
 </div>
   
 {% endif %}
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="{%static 'js/script.js'%}" ></script>
+
 {%endblock%}

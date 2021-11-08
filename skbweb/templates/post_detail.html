@@ -6,8 +6,7 @@
         <h1 class="main-text">{% block title %} {{ object.title }} {% endblock title %}</h1>
         <div class="container-link"><p class="text ">{{ object.content | safe }}</p></div>
         <img src="{%static 'img/arrow-up.png'%}" alt="" class="arrow-up">
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-         <script src="{%static 'js/script.js'%}" ></script>
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
       </div>
       
 </div>
