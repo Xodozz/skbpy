@@ -6,14 +6,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная</title>
+    <title>Главная страница</title>
     <link rel="stylesheet" href="{% static '/css/slider.css' %}">
     <link rel="stylesheet" href="{% static '/css/main.css' %}">
     <link rel="stylesheet" href="{% static '/css/home.css' %}">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{%static 'js/jquery-3.6.0.min.js'%}" ></script>
     <script src="{%static 'js/slick/slick.min.js'%}" ></script>
+    <script src="{%static 'js/slick.js'%}" ></script>
     <script src="{%static 'js/script.js'%}" ></script>
 	<link rel="shortcut icon" href="{% static '/img/favicon.ico' %}" />
+    
+ 
 </head>
 <body>
    
@@ -27,18 +30,25 @@
         </div>
     </div>
     <div class="maincon-content">
-    <div class="block con-one" id="ya1"><h2> СКБ ЭТО</h2>
-    <div class="main-conteiner text-one"><h4>Студенческое конструксторское бюро нашего любимого колледжа связи. здесь студенты могут воплотить в жизнь абсолютно различные проекты: от ... до чпу станков. Студентам в реализации их идей помогают квалифицированные специалисты - преподаватели колледжа связи. Здесь в СКБ вы можете научиться работать в различных программах проектирования, таких как Altium, Компас 3д и многих других. В данный момент, участники СКБ занимаются разработкой собственного ЧПУ, предназначенного для упрощения и повышения качества печатных плат собственного производства. Подитожив, можно сказать что СКБ - это сферический пиздец в вакууме. ждём вас в своих рядах.</h4></div>
+    <div class="block con-one"><h2> СКБ ЭТО</h2>
+    <div class="main-conteiner text-one"><h4>
+   <p> Студенческое конструкторское бюро нашего любимого колледжа связи. Здесь студенты могут воплотить в жизнь абсолютно различные технические проекты. Например, сконструировать чпу станок. Студентам в реализации их идей помогают квалифицированные специалисты - преподаватели ВКСиИТ. </p>
+   <p> В СКБ вы можете научиться работать в различных программах проектирования, таких как Altium, Компас 3д. </p>
+   <p>Присоединяйся, к нашему дружному коллективу, мы ждем тебя)</p>
+
+    </h4></div>
     </div>
     <div class="block con-two"><h2>КТО МЫ</h2>
-    <div class="main-conteiner text-two"><h4>Команда СКБ состоит из студентов колледжа ВКСиИТ, обучающихся на специальностях Техническое обслуживание и Сети связи. Мы занимаемся разработкой и изготовлением различных электронных устройств, ремонтом и модернизацией различной техники (к примеру телефонов, радиоприёмников, проигрывателей и тд). Мы всегда готовы помочь друг другу в реализации наших идей. Наш девиз: хочу вина и паяльник. Готовы работать вместе с вами в нашем дружном коллективе?</h4>
+    <div class="main-conteiner text-two"><h4>
+        <p>Команда СКБ состоит из студентов колледжа ВКСиИТ, обучающихся на таких специальностях, как Техническое обслуживание и Сети связи. </p>
+        <p>Мы занимаемся разработкой и изготовлением различных электронных устройств, ремонтом и модернизацией различной техники (к примеру телефонов, радиоприёмников, проигрывателей и т.д.). </p>
+        <p>Мы всегда готовы помочь друг-другу в реализации наших идей. Наш девиз: хочу вина и паяльник. Готовы работать вместе с вами в нашем дружном коллективе?</p>
+    </h4>
     </div>
     </div>
     
-    <div class="block block4 con-three"><a href="http://127.0.0.1:8000/blog/" class="block4-link"><h2>МАТЕРИАЛЫ</h2></a>
-      {% for post in banner_list %}
-        {{ post.image }}
-        {% endfor %}
+    <div class="block block4"><a href="http://127.0.0.1:8000/blog/" class="block4-link"><h2>МАТЕРИАЛЫ</h2></a>
+     
         <div class="slider2 single-item">
             {% for post in post_list %}
             <div class="slider2-content"> 
@@ -46,43 +56,60 @@
             <div class="img-slider2">
                 
               {% if post.image %}
-                <img data-lazy="{{post.image.url}}">
+                <img src="{{post.image.url}}">
                 {% else %}
                 <img src="{%static 'img/no-image-big.png'%}" alt="">
                 {% endif %}
             </div> 
-            <a href="{% url 'post_detail' post.slug  %}" ><button class="three-but"><h3>Читать ></h3></button> </a>
+           
+
+            
            
                  <div class="text-slider2">
-                    <h4>{{post.content|safe|truncatewords_html:8}}</h4>
+                    {{post.content|safe|truncatewords_html:44}}
                     <p class="author">Публикация:  {{ post.created_on}}</p>
-               
+                    <a href="{% url 'post_detail' post.slug  %}" ><button class="three-but"><h3>Читать ></h3></button> </a>
             </div>
+            
             </div>
             {% endfor %}
             </div>
             </div>
             <div class="block con-four"><h2>ГДЕ МЫ</h2>
             <div class="main-conteiner text-four">
-                <a href="https://vk.com/studkb"><img src="{%static 'img/Vector2.svg'%}" alt="" class="vk"></a> 
-                <a href="https://www.youtube.com/channel/UCd3pJlz_pqhXi6ZHTc6-jlw"><img src="{%static 'img/youtube.svg'%}" alt="" class="youtube"></a>
-                <a href="https://t.me/skb_35"><img src="{%static 'img/Vector-1.svg'%}" alt="" class="tg"></a>
+                <a href="https://vk.com/studkb"><img src="{%static 'img/Vector-1.svg'%}" alt="Вконтакте" class="vk"></a> 
+                <a href="https://www.youtube.com/channel/UCd3pJlz_pqhXi6ZHTc6-jlw"><img src="{%static 'img/Vector3.svg'%}" alt="Youtube" class="youtube"></a>
+                <a href="https://t.me/skb_35"><img src="{%static 'img/Vector2.svg'%}" alt="Telegramm" class="tg"></a>
             </div>
         </div>
             <img src="{%static 'img/arrow-up.png'%}" alt="" class="arrow-up">
             <footer>
-               <ul class="link-footer">
-                   <li> <h4>По всем техническим вопросам, Вы можете спросить  <a href="https://vk.com/xodozz">тут</a> </h4></li>
-                   <li> <h4>Сайт <a href="https://vksit.ru/#/">ВКСиИТ</a></h4></li>
-                </ul>
-                </footer>
+                 <div class="footer-info">
+                     <div class="mail-link"><h4>Связаться с администратором shevelejob@ya.ru</h4></div>
+                   
+                    
+              <div class="footer-links">
+                <h4>Подпишись на нас</h4>
+                <a href="https://vk.com/studkb"><img src="{%static 'img/whiteVk.svg'%}" class="vk-footer" alt="Вконтакте"></a>
+                <a href="https://t.me/skb_35"><img src="{%static 'img/whiteTg.svg'%}" class="tg-footer" alt="Telegramm"></a>
+                <a href="https://www.youtube.com/channel/UCd3pJlz_pqhXi6ZHTc6-jlw"><img src="{%static 'img/whiteYt.svg'%}"  class="yt-footer" alt="Youtube"></a>
+              </div>
+              <div class="vksiit"><a href="https://vksit.ru/#/"> <img src="{%static 'img/logo_vksiit.svg'%}" alt="ВКСиИТ" ></a></div>
+                 </div>
+               <div class="xodozz"><h4><a href="https://vk.com/public210387488" > Сайт разработал Xodozz </a></h4></div>
+                 </footer>
             </div> 
+            
                 </div>
+                
                 </div>
+                
                 </div>
+                
                 </div>
+                
         </div>
 
-   
+        
 </body>
 </html>  

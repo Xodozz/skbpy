@@ -5,25 +5,45 @@
     <meta charset="UTF-8">
     <title>Ошибка 404</title>
     <style>
-        .error{
+        @font-face {
+	font-family: 'Ronduit';
+
+	src: url(../static/font/RonduitCapitals-Light.otf);
+}
+@font-face {
+	font-family: 'Montserrat';
+	
+	src: url(../static/font/Montserrat-Bold.ttf);
+}
+*::selection {
+    color: #fff;
+     background: #a5915f;
+   }
+        .error {
            
-            font-family: sans-serif;
-            width: 90%;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-            color: #ffa255;
-        }
-        img{
-            max-width: 100%;
-        }
-        a{  color: #ffa255;
-            text-decoration: none;
-        }
-        a:hover{
-            font-family: sans-serif;
-            border-bottom: 1px solid #ffa255;;
-        }
+          
+           width: 90%;
+           margin: 0 auto;
+           text-align: center;
+           position: relative;
+           color: #2D2D2D;
+           margin-top: 200px;
+       }
+       h1,h2{
+           font-family: 'Ronduit',sans-serif;
+       }
+       img{
+           max-width: 100%;
+       }
+       a{  
+           font-family: 'Montserrat';
+           color: #2D2D2D;
+           text-decoration: none;
+       }
+       a:hover{
+         
+           border-bottom: 1px solid #a5915f;
+       }
     </style>
 </head>
 <body>

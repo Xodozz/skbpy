@@ -34,21 +34,24 @@ class PostList(generic.ListView):
         # return render(request, "pages/index.html", context)
         return render(request, "index.html", context)
 class PostDetail(generic.DetailView):
+
     model = Post
     template_name = 'post_detail.html'
 class HomePage(generic.ListView):
     model = Post
+    queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'home.html'
     paginate_by = 3
     def get_context_data(self, **kwargs):
         context = super(HomePage, self).get_context_data(**kwargs)
         context['settings'] = Banner.objects.all().order_by('-id')
         return context
-class BannerList(generic.ListView):
-    model = Banner
-    template_name = 'banner.html'
-    banner_list = Banner.objects.all().order_by('-id')
-    context = {"banner_list": banner_list}
+# class BannerList(generic.ListView):
+#     model = Banner
+#     template_name = 'banner.html'
+#
+#     banner_list = Banner.objects.all().order_by('-id')
+#     context = {"banner_list": banner_list}
 
 class BannerGet(generic.ListView):
     model = Banner
@@ -60,14 +63,16 @@ def index(request):
 
 class SearchResultsView(ListView):
     model = Post
+
     template_name = 'search_results.html'
 
     def get_queryset(self):
 
         query = self.request.GET.get('q')
         if query!='':
+
             object_list = Post.objects.filter(
-                Q(title__icontains=query)
+                Q(title__icontains=query, status=1)
                 )
 
         return object_list

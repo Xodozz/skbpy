@@ -6,34 +6,17 @@
  
         <meta name="google" content="notranslate" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-       
+            
             <link rel="stylesheet" href="{% static 'css/main.css' %}">
             <link rel="stylesheet" href="{% static 'css/base.css' %}">
             <link rel="shortcut icon" href="{% static '/img/favicon.ico' %}" />
-            <style>
-                   table {
-	font-family: 'Montserrat-Light',sans-serif;
-	margin-bottom: 20px;
-	border: 1px solid #dddddd;
-	border-collapse: collapse; 
-}
-table{
-   
-    margin: 0 auto;
-}
-table th {
-	font-weight: bold;
-	padding: 5px;
-	background: #efefef;
-    background-color: #EE7D2B;
-    color: white;
-}
-table td {
-	border: 1px solid #dddddd;
-	padding: 5px;
-}
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="{%static 'js/slick/slick.min.js'%}" ></script>
+            <script src="{%static 'js/script.js'%}" ></script>
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap" rel="stylesheet">
 
-            </style>
+          
+          
     </head>
 
     <body>
@@ -42,6 +25,19 @@ table td {
 
         {% endblock content %}
 
-        
+        <footer>
+          <div class="footer-info">
+              <div class="mail-link"><h4>Связаться с администратором shevelejob@ya.ru</h4></div>
+            
+              <div class="footer-links">
+                   <h4>Подпишись на нас</h4>
+                   <a href="https://vk.com/studkb"><img src="{%static 'img/whiteVk.svg'%}" class="vk-footer" alt="Вконтакте"></a>
+                   <a href="https://t.me/skb_35"><img src="{%static 'img/whiteTg.svg'%}" class="tg-footer" alt="Telegramm"></a>
+                   <a href="https://www.youtube.com/channel/UCd3pJlz_pqhXi6ZHTc6-jlw"><img src="{%static 'img/whiteYt.svg'%}"  class="yt-footer" alt="Youtube"></a>
+                 </div>
+                 <div class="vksiit"><a href="https://vksit.ru/#/"> <img src="{%static 'img/logo_vksiit.svg'%}" alt="ВКСиИТ" ></a></div>
+          </div>
+        <div class="xodozz"><h4><a href="https://vk.com/public210387488" > Сайт разработал Xodozz </a></h4></div>
+          </footer>
     </body>
 </html>

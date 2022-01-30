@@ -1,14 +1,74 @@
-{% extends 'base.html' %} 
-{% load static %}
-{% block content %}
-{% block header %} {% include 'header.html' %} {% endblock header %}
-<div class="full-content">
-        <h1 class="main-text">{% block title %} {{ object.title }} {% endblock title %}</h1>
-        <div class="container-link"><p class="text ">{{ object.content | safe }}</p></div>
-        <img src="{%static 'img/arrow-up.png'%}" alt="" class="arrow-up">
-        <link rel="stylesheet" href="{% static 'css/base.css' %}">
-      </div>
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> {{ object.title }} </title>
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <link rel="stylesheet" href="{% static 'css/post_detail.css' %}">
+  <link rel="shortcut icon" href="{% static '/img/favicon.ico' %}" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="{%static 'js/slick/slick.min.js'%}" ></script>
+  <script src="{%static 'js/script.js'%}" ></script>
+  <script src="{%static 'js/slick.js'%}" ></script>
+</head>
+<body>
+  {% block content %}
+  {% block header %} {% include 'header.html' %} {% endblock header %}  
+  <div class="full-content">
+ 
+    <h1 class="main-text">{% block title %} {{ object.title }} {% endblock title %}</h1>
+    <script>
+      $(function(){
+$('img').not('.arrow-up, .s1,.s2').click(function(event) {
+  var i_path = $(this).attr('src');
+  $('body').append('<div id="overlay"></div><div id="magnify"><img src="'+i_path+'"><div id="close-popup"><i></i></div></div>');
+  $('#magnify').css({
+   left: ($(document).width() - $('#magnify').outerWidth())/2,
+   // top: ($(document).height() - $('#magnify').outerHeight())/2 upd: 24.10.2016
+    top: ($(window).height() - $('#magnify').outerHeight())/2
+ });
+  $('#overlay, #magnify').fadeIn('fast');
+});
+
+$('body').on('click', '#close-popup, #overlay', function(event) {
+  event.preventDefault();
+  $('#overlay, #magnify').fadeOut('fast', function() {
+    $('#close-popup, #magnify, #overlay').remove();
+  });
+});
+});
+  </script>
+    <div class="container-link"><p class="text ">{{ object.content | safe }}</p>
       
-</div>
+ 
+    </div>
+    
+    <img src="{%static 'img/arrow-up.png'%}" alt="" class="arrow-up">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    
+  </div>  
+  <footer>
+    <div class="footer-info">
+        <div class="mail-link"><h4>Связаться с администратором shevelejob@ya.ru</h4></div>
+      
+       
+        <div class="footer-links">
+          <h4>Подпишись на нас</h4>
+          <a href="https://vk.com/studkb"><img src="{%static 'img/whiteVk.svg'%}" class="vk-footer" alt="Вконтакте"></a>
+          <a href="https://t.me/skb_35"><img src="{%static 'img/whiteTg.svg'%}" class="tg-footer" alt="Telegramm"></a>
+          <a href="https://www.youtube.com/channel/UCd3pJlz_pqhXi6ZHTc6-jlw"><img src="{%static 'img/whiteYt.svg'%}"  class="yt-footer" alt="Youtube"></a>
+        </div>
+        <div class="vksiit"><a href="https://vksit.ru/#/"> <img src="{%static 'img/logo_vksiit.svg'%}" alt="ВКСиИТ" ></a></div>
+    </div>
+  <div class="xodozz"><h4><a href="https://vk.com/public210387488" > Сайт разработал Xodozz </a></h4></div>
+    </footer>
+</body>
+</html>
+
+      
+
 
 {% endblock content %}

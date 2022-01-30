@@ -6,39 +6,114 @@
 <head>
     <meta charset="UTF-8">
     <title>Поиск</title>
-    <link rel="shortcut icon" href="{% static '/img/favicon.ico' %}" />
-    <link rel="stylesheet" href="{% static '/css/main.css' %}">
-    <link rel="stylesheet" href="{% static '/css/search.css' %}">
-
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+   
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <script src="{%static 'js/jquery-3.6.0.min.js'%}" ></script>
+    
+    <script src="{%static 'js/script.js'%}" ></script>
+   
   </head>
 
 <body>
+ 
   {% block header %} {% include 'header.html' %} {% endblock header %}
   <div class="content">
     <div class="main-text"><h1>Результат поиска:</h1></div>  
       {% for post in post_list %}
-    <div class="block con-three">
-        <div class="conteiner text-three">
-            <h2>{{ post.title }}</h2>
-            {% if post.image %}
-            <p><img src="{{post.image.url}}"></p>
-            {% else %}
-            <p><img src="{%static 'img/no-image-big.png'%}" alt=""></p>
-            {% endif %}
-            <div class="block-text-con">
-            <p class="conteiner-text"><h4>{{post.content|safe|truncatewords_html:16}}</h4></p>
-            </div>   
-          <a href="{% url 'post_detail' post.slug  %}"><button class="three-but"><h3>Читать ></h3></button></a>
+    
+      <div class="conteiner">
+        
+        <h2>{{ post.title }}</h2>
+        <div class="container-content">
+        {% if post.image %}
+        <img src="{{post.image.url}}">
+        {% else %}
+        <img src="{%static 'img/no-image-big.png'%}" alt="">
+        {% endif %}
+        <div class="container-text">
+        {{post.content|safe|truncatewords_html:58}}
+        <p class="author">  Публикация:{{ post.created_on}}</p>
+        <a href="{% url 'post_detail' post.slug  %}"><button class="three-but"><h3>Читать ></h3></button></a>
+        
+    </div>
       
-            <p class="author">Публикация:  {{ post.created_on}}</p>
-        </div>
-        </div>
+  
+  
+        
+    </div>
+    </div>
         
         {% endfor %}
+        
+        {% if is_paginated %}
+
+        <div class="paginate">
+  <ul > 
+    {% if page_obj.has_previous %}
+
+   <li> <a href="?page=1" class="first">В начало</a></li> 
+   <li> <a href="?page={{ page_obj.previous_page_number }}">&lt;</a></li> 
+   
+    {% endif %}
+    {% for i in page_obj.paginator.page_range %}
+        {% if i > page_obj.number|add:-2 and i < page_obj.number|add:3 %}
+            {% if page_obj.number == i  %}
+                <li class="page-item " aria-current="page"><a class="count" href="#"> {{ i }}  </a></li>
+            {% else %}
+                <li class="page-item active"><a class="page-link" href="?page={{ i }}"> {{ i }} </a></li> 
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    
+    {% if page_obj.has_next %}
+    <li><a href="?page={{ page_obj.next_page_number }}">></a></li>
+    <li><a href="?page={{ page_obj.paginator.num_pages }}" class="last">В конец</a></li>
+    {% endif %}
+  </ul>
+</div>
+  
+{% endif %}
+
        <img src="{%static 'img/arrow-up.png'%}" alt="" class="arrow-up">
        
   </div>
 
+  <footer>
+    <div class="footer-info">
+        <div class="mail-link"><h4>Связаться с администратором shevelejob@ya.ru</h4></div>
+      
+        
+        <div class="footer-links">
+          <h4>Подпишись на нас</h4>
+          <a href="https://vk.com/studkb"><img src="{%static 'img/whiteVk.svg'%}" class="vk-footer" alt="Вконтакте"></a>
+          <a href="https://t.me/skb_35"><img src="{%static 'img/whiteTg.svg'%}" class="tg-footer" alt="Telegramm"></a>
+          <a href="https://www.youtube.com/channel/UCd3pJlz_pqhXi6ZHTc6-jlw"><img src="{%static 'img/whiteYt.svg'%}"  class="yt-footer" alt="Youtube"></a>
+        </div>
+        <div class="vksiit"><a href="https://vksit.ru/#/"> <img src="{%static 'img/logo_vksiit.svg'%}" alt="ВКСиИТ" ></a></div>
+    </div>
+  <div class="xodozz"><h4><a href="https://vk.com/public210387488" > Сайт разработал Xodozz </a></h4></div>
+    </footer>
+    <script>
 
+      var con = document.querySelector('.conteiner')
+      var arrow= document.querySelector('.arrow-up')
+      var div = document.querySelector('.main-text')
+     
+        if(con){
+          
+        }
+        else{
+          div.innerHTML = "<h1>Мы не нашли то, что Вы искали</h1>"+"<img src='{%static 'img/ooopse.svg'%}'>"
+         
+          arrow.remove()
+        }
+       
+     
+        
+
+      
+    </script>
 </body>
 </html>
